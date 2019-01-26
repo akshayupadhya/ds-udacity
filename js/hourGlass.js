@@ -1,5 +1,5 @@
 function hourglassSum(arr) {
-  let maxSum = 0;
+  let maxSum = undefined;
   for (let i = 0; i <= arr.length - 3; i++) {
     // console.info(arr[i].length);
     const len = arr[i].length - 3;
@@ -8,6 +8,7 @@ function hourglassSum(arr) {
       const mid = arr[j + 1][i + 1];
       const bottom = arr[j + 2][i] + arr[j + 2][i + 1] + arr[j + 2][i + 2];
       const sum = top + mid + bottom;
+      if (!(maxSum || maxSum === 0)) maxSum = sum;
       if (sum > maxSum) maxSum = sum;
     }
   }
@@ -16,11 +17,11 @@ function hourglassSum(arr) {
 
 console.info(
   hourglassSum([
-    [1, 1, 1, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0],
-    [1, 1, 1, 0, 0, 0],
-    [0, 0, 2, 4, 4, 0],
-    [0, 0, 0, 2, 0, 0],
-    [0, 0, 1, 2, 4, 0]
+    [-1, 1, -1, 0, 0, 0],
+    [0, -1, 0, 0, 0, 0],
+    [-1, -1, -1, 0, 0, 0],
+    [0, -9, 2, -4, -4, 0],
+    [-7, 0, 0, -2, 0, 0],
+    [0, 0, -1, -2, -4, 0]
   ])
 );
